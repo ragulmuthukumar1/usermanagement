@@ -32,13 +32,13 @@ func main() {
 	api.HandleFunc("/users/{id}", handleAPIUpdateUser).Methods("PUT")
 	api.HandleFunc("/users/{id}", handleAPIDeleteUser).Methods("DELETE")
 
-
 	r.PathPrefix("/").Handler(http.FileServer(http.FS(static.FS)))
 
 	// Start server
 	port := 8040
 	log.Printf("Server listening on port %d...\n", port)
 	log.Fatal(http.ListenAndServe(":"+strconv.Itoa(port), r))
+
 }
 
 // API handlers
